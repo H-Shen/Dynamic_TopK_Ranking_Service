@@ -1,0 +1,35 @@
+name: Dynamic_TopK_Ranking_Service_CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 22
+      uses: actions/setup-java@v3
+      with:
+        java-version: '22'
+    - name: Build and run the tests
+      run: |
+        chmod +x ./mvnw
+        ./mvnw clean
+        ./mvnw test
+    - name: Build and run the app
+      run: |
+        chmod +x ./mvnw
+        ./mvnw clean
+        ./mvnw spring-boot:run
+        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "example"}'
+        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "example"}'
+        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "word"}'
+        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "word"}'
+        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "alpha"}'
+        curl -X POST http://localhost:18080/api/v1/query -H "Content-Type: application/json" -d '{"top": "3"}'
