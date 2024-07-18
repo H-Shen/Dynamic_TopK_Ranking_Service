@@ -23,8 +23,3 @@ jobs:
         chmod +x ./mvnw
         ./mvnw clean
         ./mvnw test
-    - name: Build and run the app
-      run: |
-        chmod +x ./mvnw
-        ./mvnw clean
-        ./mvnw spring-boot:run
