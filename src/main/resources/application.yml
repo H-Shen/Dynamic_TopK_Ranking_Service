@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: dynamic_top_k_query
+  cache:
+    type: simple
+server:
+  port: 18080
+# swagger3 config
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /api-docs
