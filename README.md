@@ -1,5 +1,7 @@
 ## Dynamic Top-K Ranking Service
 
+![CI](https://github.com/H-Shen/Dynamic_TopK_Ranking_Service/workflows/Dynamic_TopK_Ranking_Service_CI/badge.svg)
+
 ### Project Introduction
 
 Dynamic Top-K Ranking Service is a web service built using Springboot to dynamically calculate and return the top-k most
@@ -35,7 +37,11 @@ cd Dynamic-Top-K-Ranking-Service
 ```shell
 ./mvnw clean
 ./mvnw spring-boot:run
-# Test by cURL
+```
+
+### Test by cURL in another terminal
+
+```shell
 curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "example"}'
 curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "example"}'
 curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "word"}'
