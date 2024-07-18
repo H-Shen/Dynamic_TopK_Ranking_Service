@@ -28,9 +28,3 @@ jobs:
         chmod +x ./mvnw
         ./mvnw clean
         ./mvnw spring-boot:run
-        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "example"}'
-        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "example"}'
-        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "word"}'
-        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "word"}'
-        curl -X POST http://localhost:18080/api/v1/update -H "Content-Type: application/json" -d '{"target": "alpha"}'
-        curl -X POST http://localhost:18080/api/v1/query -H "Content-Type: application/json" -d '{"top": "3"}'
